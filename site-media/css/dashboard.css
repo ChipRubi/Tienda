@@ -1,0 +1,25 @@
+section .container{
+	background: rgba(255,255,255,0.9);
+    box-shadow: 0px -10px 10px rgba(0,0,0,0.5);
+}
+
+section .container .elemento{
+	padding: 0 50px;
+}
+
+section .container p{
+	text-align: justify;
+}
+
+section .container .button{
+	margin: 30px 0;
+	text-align: center;
+}
+
+section .carousel{
+	margin-bottom: 15px;
+}
+
+section .header{
+	margin-top: 50px;
+}
