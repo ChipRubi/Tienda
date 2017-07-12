@@ -30,15 +30,6 @@ create table tda_tbl_categoria(
     primary key(id_cat)
 ) engine = InnoDB;
 
-create table tda_tbl_devolucion(
-	id_dev int auto_increment not null,
-    fecha_hora_inicio_dev datetime not null,
-    fecha_hora_fin_dev datetime not null,
-    total_dev float unsigned not null,
-    
-    primary key(id_dev)
-) engine = InnoDB;
-
 create table tda_tbl_tipo(
 	id_tip int auto_increment not null,
     nombre_tip varchar(60) not null,
@@ -94,8 +85,8 @@ create table tda_tbl_usuario(
 create table tda_tbl_compra(
 	id_com int auto_increment not null,
     fecha_hora_inicio_com datetime not null,
-    fecha_hora_fin_com datetime not null,
-    total_com float unsigned not null,
+    fecha_hora_fin_com datetime null,
+    total_com float unsigned null,
     id_usu_com int not null,
     
     primary key(id_com),
@@ -105,8 +96,8 @@ create table tda_tbl_compra(
 create table tda_tbl_venta(
 	id_ven int auto_increment not null,
     fecha_hora_inicio_ven datetime not null,
-    fecha_hora_fin_ven datetime not null,
-    total_ven float unsigned not null,
+    fecha_hora_fin_ven datetime null,
+    total_ven float unsigned null,
     id_usu_ven int not null,
     
     primary key(id_ven),
@@ -152,27 +143,6 @@ create table tda_rel_articulo_compra(
     foreign key(id_com_rel_art_com) references tda_tbl_compra(id_com)
 ) engine = InnoDB;
 
-create table tda_rel_devolucion_venta(
-	id_rel_dev_ven int auto_increment not null,
-    cantidad_rel_dev_ven int unsigned default 1 not null,
-    id_dev_rel_dev_ven int not null,
-    id_ven_rel_dev_ven int not null,
-    
-    primary key(id_rel_dev_ven),
-    foreign key(id_dev_rel_dev_ven) references tda_tbl_devolucion(id_dev),
-    foreign key(id_ven_rel_dev_ven) references tda_tbl_venta(id_ven)
-) engine = InnoDB;
-
-create table tda_rel_devolucion_compra(
-	id_rel_dev_com int auto_increment not null,
-    cantidad_rel_dev_com int unsigned default 1 not null,
-    id_dev_rel_dev_com int not null,
-    id_com_rel_dev_com int not null,
-    
-    primary key(id_rel_dev_com),
-    foreign key(id_dev_rel_dev_com) references tda_tbl_devolucion(id_dev),
-    foreign key(id_com_rel_dev_com) references tda_tbl_compra(id_com)
-) engine = InnoDB;
 
 create table tda_rel_usuario_venta(
 	id_rel_usu_ven int auto_increment not null,
@@ -231,6 +201,6 @@ insert into tda_tbl_usuario (
     'chip', 
     'hector21096@gmail.com', 
     md5('admin'), 
-    'site-media/media/admin.png',
+    '"../img/profile/acount.png"',
     1
 );

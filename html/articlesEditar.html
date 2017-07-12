@@ -1,0 +1,107 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-2">
+					<div class="list-group">
+						<a href="inventory.php" class="list-group-item">Inventario</a>
+						<a href="articles.php" class="list-group-item active">Articulos</a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<h1>Editar Articulo</h1>
+
+					<form action="articlesEditarGuardar.php" class="form-horizontal" method="post">
+						<input type="hidden" name="idEditar" id="idEditar" value="[ART_ID]">
+
+						<div class="form-group">
+							<label for="fotoEditar" class="col-sm-3 control-label">Foto:</label>
+							<div class="col-sm-7">
+								<img src="[ART_FOTO]" class="img-responsive img-thumbnail"  width="200">
+								<button type="button" class="btn btn-link" data-toggle="modal" data-target="#foto-modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Cambiar</button>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="nombreEditar" class="col-sm-3 control-label">Nombre:</label>
+							<div class="col-sm-7">
+								<input type="text" name="nombreEditar" id="nombreEditar" class="form-control" value="[ART_NOMBRE]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="claveEditar" class="col-sm-3 control-label">Clave:</label>
+							<div class="col-sm-7">
+								<input type="text" name="claveEditar" id="claveEditar" class="form-control" value="[ART_CLAVE]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="precioEditar" class="col-sm-3 control-label">Precio:</label>
+							<div class="col-sm-7">
+								<input type="number" min="0" step="0.10" name="precioEditar" id="precioEditar" class="form-control" value="[ART_PRECIO]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="cantidadEditar" class="col-sm-3 control-label">Cantidad:</label>
+							<div class="col-sm-7">
+								<input type="number" min="0" step="1" name="cantidadEditar" id="cantidadEditar" class="form-control" value="[ART_CANTIDAD]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="descripcionEditar" class="col-sm-3 control-label">Descripción:</label>
+							<div class="col-sm-7">
+								<textarea name="descripcionEditar" id="descripcionEditar" class="form-control" cols="30" rows="10">[ART_DESCRIPCION]</textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inventarioEditar" class="col-sm-3 control-label">Inventario:</label>
+							<div class="col-sm-7">
+								<select name="inventarioEditar" id="inventarioEditar" class="form-control">
+									[ART_INVENTARIO]
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submmit" class="btn btn-primary"> Guardar</button>
+								<a href="articles.php" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+					</form>
+
+					<!-- Cambiar foto -->
+					<div class="modal fade" id="foto-modal" tabindex="-1" role="dialog" aria-labelledby="title-foto-modal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<form enctype="multipart/form-data" action="articlesEditarFoto.php?idArt=[ART_ID]" method="post" class="form-horizontal">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        		<h4 class="modal-title" id="title-foto-modal">Cambiar Foto</h4>
+									</div>
+
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="fotoEditar" class="col-sm-3 control-label">Foto:</label>
+											<div class="col-sm-7">
+												<input type="file" name="fotoEditar" id="fotoEditar" class="form-control-static" required="true">
+											</div>
+										</div>
+									</div>
+
+									<div class="modal-footer">
+										<button type="submmit" class="btn btn-primary">Guardar</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Fin Cambiar Foto -->
+				</div>
+			</div>
+		</div>
+	</section>

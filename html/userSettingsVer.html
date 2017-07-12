@@ -1,0 +1,54 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-3">
+					<img src="[USER_FOTO]" alt="" class="img-responsive img-circle">
+				</div>
+				<div class="col-md-9">
+					<h1>[USER_USUARIO]</h1>
+					<a href="userSettings.php" class="btn btn-success">Regresar</a>
+
+					<hr>
+
+					<form action="userEditar.php" method="post" class="form-horizontal">
+						<input type="hidden" name="idEditar" id="idEditar" value="[USER_ID]">
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Nombres:</label>
+							<div class="col-sm-7">
+								<label class="control-label text-primary">[USER_NOMBRES]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Apellidos:</label>
+							<div class="col-sm-7">
+								<label class="control-label text-primary">[USER_APELLIDOS]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Usuario:</label>
+							<div class="col-sm-7">
+								<label class="control-label text-primary">[USER_USUARIO]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Correo:</label>
+							<div class="col-sm-7">
+								<label class="control-label text-primary">[USER_CORREO]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Tipo:</label>
+							<div class="col-sm-7">
+								<label class="control-label text-primary">[USER_TIPO]</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>

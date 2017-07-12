@@ -1,0 +1,50 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-10 col-md-offset-1">
+					<h1>Realizar Venta [VEN_ID]</h1>
+
+					<form action="salesAgregar.php" method="post" class="form-horizontal">
+						<input type="hidden" name="idVenta" id="idVenta" value="[VEN_ID]">
+						
+						<div class="form-group">
+							<label for="claveArticulo" class="col-sm-3 control-label">Clave:</label>
+							<div class="col-sm-7">
+								<input type="text" name="claveArticulo" id="claveArticulo" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="cantidadArticulo" class="col-sm-3 control-label">Cantidad:</label>
+							<div class="col-sm-7">
+								<input type="number" min="0" step="1" name="cantidadArticulo" id="cantidadArticulo" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submmit" id="agregar" class="btn btn-success">Agregar</button>
+								<button type="reset" id="limpiar" class="btn btn-warning">Limpiar</button>
+							</div>
+						</div>
+					</form>
+
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<tr>
+								<th>No.</th>
+								<th>Articulo</th>
+								<th>Cantidad</th>
+								<th>Costo</th>
+								<th>Total</th>
+								<th></th>
+							</tr>
+							[TABLE_CONTENT]
+						</table>
+					</div>
+
+					<a href="salesFinalizar.php?idVen=[VEN_ID]" class="btn btn-primary">Finalizar</a>
+				</div>
+			</div>
+		</div>
+	</section>

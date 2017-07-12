@@ -1,0 +1,151 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-3">
+					<img src="[USER_FOTO]" alt="" class="img-responsive img-circle">
+				</div>
+				<div class="col-md-9">
+					<h1>[USER_USUARIO]</h1>
+					<a href="closeSession.php">Cerrar Sesión</a>
+
+					<hr>
+
+					<form action="" class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Nombres:</label>
+							<div class="col-sm-7">
+								<label id="nombres" class="control-label text-primary">[USER_NOMBRES]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Apellidos:</label>
+							<div class="col-sm-7">
+								<label id="apellidos" class="control-label text-primary">[USER_APELLIDOS]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Usuario:</label>
+							<div class="col-sm-7">
+								<label id="usuario" class="control-label text-primary">[USER_USUARIO]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Correo:</label>
+							<div class="col-sm-7">
+								<label id="correo" class="control-label text-primary">[USER_CORREO]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Tipo:</label>
+							<div class="col-sm-7">
+								<label id="correo" class="control-label text-primary">[USER_TIPO]</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<a href="userSettingsEditar.php?idUsu=[USER_ID]" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+								<button type="button" class="btn btn-success [ADD]" data-toggle="modal" data-target="#nuevo-modal"><i class="fa fa-file" aria-hidden="true"></i> Nuevo</button>
+							</div>
+						</div>
+					</form>
+					
+					<!-- Formulario de nuevo -->
+					<div class="modal fade" id="nuevo-modal" tabindex="-1" role="dialog" aria-labelledby="title-nuevo-modal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<form enctype="multipart/form-data" action="userNuevo.php" method="post" class="form-horizontal">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        		<h4 class="modal-title" id="title-crear-modal">Crear Usuario</h4>
+									</div>
+
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="fotoNuevo" class="col-sm-3 control-label">Foto:</label>
+											<div class="col-sm-7">
+												<input type="file" name="fotoNuevo" id="fotoNuevo" class="form-control-static" required="true">
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label for="nombresNuevo" class="col-sm-3 control-label">Nombres:</label>
+											<div class="col-sm-7">
+												<input type="text" name="nombresNuevo" class="form-control" id="nombresNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="apellidosNuevo" class="col-sm-3 control-label">Apellidos:</label>
+											<div class="col-sm-7">
+												<input type="text" name="apellidosNuevo" class="form-control" id="apellidosNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="usuarioNuevo" class="col-sm-3 control-label">Usuario:</label>
+											<div class="col-sm-7">
+												<input type="text" name="usuarioNuevo" class="form-control" id="usuarioNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="correoNuevo" class="col-sm-3 control-label">Correo:</label>
+											<div class="col-sm-7">
+												<input type="email" name="correoNuevo" class="form-control" id="correoNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="passwordNuevo" class="col-sm-3 control-label">Contraseña:</label>
+											<div class="col-sm-7">
+												<input type="password" name="passwordNuevo" class="form-control" id="passwordNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="confirmacionNuevo" class="col-sm-3 control-label">Confirmar:</label>
+											<div class="col-sm-7">
+												<input type="password" name="confirmacionNuevo" class="form-control" id="confirmacionNuevo" required="true">
+											</div>
+										</div>
+
+									</div>
+
+									<div class="modal-footer">
+										<button type="submmit" class="btn btn-primary">Guardar</button>
+										<button type="reset" class="btn btn-warning">Limpiar</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Fin formulario de nuevo -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="table-responsive">
+						<h3>Todos los Usuarios</h3>
+						<table class="table table-hover">
+							<tr>
+								<th>Foto</th>
+								<th>Nombres</th>
+								<th>Apellidos</th>
+								<th>Usuario</th>
+								<th>Correo</th>
+								<th>Tipo</th>
+								<th></th>
+							</tr>
+							[TABLE_CONTENT]
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

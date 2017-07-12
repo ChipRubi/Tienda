@@ -1,0 +1,109 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-2">
+					<div class="list-group">
+						<a href="inventory.php" class="list-group-item">Inventario</a>
+						<a href="articles.php" class="list-group-item active">Articulos</a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<h1>Articulos</h1>
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Clave</th>
+								<th>Precio</th>
+								<th>Cantidad</th>
+								<th>Descripcion</th>
+								<th>Inventario</th>
+								<th></th>
+							</tr>
+							[TABLE_CONTENT]
+						</table>
+					</div>
+
+					<div class="form-group">
+						<button type="button" class="btn btn-success [ADD]" data-toggle="modal" data-target="#nuevo-modal"><i class="fa fa-file" aria-hidden="true"></i> Nuevo</button>
+					</div>
+
+					<!-- Formulario de nuevo -->
+					<div class="modal fade" id="nuevo-modal" tabindex="-1" role="dialog" aria-labelledby="title-nuevo-modal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<form enctype="multipart/form-data" action="articlesNuevo.php" method="post" class="form-horizontal">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        		<h4 class="modal-title" id="title-crear-modal">Nuevo Articulo</h4>
+									</div>
+
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="fotoNuevo" class="col-sm-3 control-label">Foto:</label>
+											<div class="col-sm-7">
+												<input type="file" name="fotoNuevo" id="fotoNuevo" class="form-control-static" required="true">
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label for="nombreNuevo" class="col-sm-3 control-label">Nombre:</label>
+											<div class="col-sm-7">
+												<input type="text" name="nombreNuevo" class="form-control" id="nombreNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="claveNuevo" class="col-sm-3 control-label">Clave:</label>
+											<div class="col-sm-7">
+												<input type="text" name="claveNuevo" class="form-control" id="claveNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="precioNuevo" class="col-sm-3 control-label">Precio:</label>
+											<div class="col-sm-7">
+												<input type="number" min="0" step="0.01" name="precioNuevo" class="form-control" id="precioNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="cantidadNuevo" class="col-sm-3 control-label">Cantidad:</label>
+											<div class="col-sm-7">
+												<input type="number" min="0" step="1" name="cantidadNuevo" class="form-control" id="cantidadNuevo" required="true">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="descripcionNuevo" class="col-sm-3 control-label">Descripcion:</label>
+											<div class="col-sm-7">
+												<textarea name="descripcionNuevo" id="descripcionNuevo" class="form-control" cols="30" rows="10"></textarea>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label for="inventarioNuevo" class="col-sm-3 control-label">Inventario:</label>
+											<div class="col-sm-7">
+												<select name="inventarioNuevo" id="inventarioNuevo" class="form-control">
+													[SELECT_INVENTARIO]
+												</select>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="modal-footer">
+										<button type="submmit" class="btn btn-primary">Guardar</button>
+										<button type="reset" class="btn btn-warning">Limpiar</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Fin formulario de nuevo -->
+				</div>
+			</div>
+		</div>
+	</section>

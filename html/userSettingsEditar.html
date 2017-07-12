@@ -1,0 +1,94 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-3">
+					<img src="[USER_FOTO]" alt="" class="img-responsive img-circle">
+					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#foto-modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+				</div>
+				<div class="col-md-9">
+					<h1>[USER_USUARIO]</h1>
+
+					<hr>
+
+					<form action="userEditar.php" method="post" class="form-horizontal">
+						<input type="hidden" name="idEditar" id="idEditar" value="[USER_ID]">
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Nombres:</label>
+							<div class="col-sm-7">
+								<input type="text" name="nombresEditar" id="nombresEditar" class="form-control" value="[USER_NOMBRES]" required="true">
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Apellidos:</label>
+							<div class="col-sm-7">
+								<input type="text" name="apellidosEditar" id="apellidosEditar" class="form-control" value="[USER_APELLIDOS]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Usuario:</label>
+							<div class="col-sm-7">
+								<input type="text" name="usuarioEditar" id="usuarioEditar" class="form-control" value="[USER_USUARIO]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Correo:</label>
+							<div class="col-sm-7">
+								<input type="email" name="correoEditar" id="correoEditar" class="form-control" value="[USER_CORREO]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group [NORMAL]">
+							<label class="col-sm-3 control-label">Tipo:</label>
+							<div class="col-sm-7">
+								<select name="tipoEditar" id="tipoEditar" class="form-control" required="true">
+									[USER_TIPO]
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submmit" class="btn btn-primary"> Guardar</button>
+								<a href="userSettings.php" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+					</form>
+
+					<!-- Formulario de nuevo -->
+					<div class="modal fade" id="foto-modal" tabindex="-1" role="dialog" aria-labelledby="title-nuevo-modal">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<form enctype="multipart/form-data" action="userEditarFoto.php?idUsu=[USER_ID]" method="post" class="form-horizontal">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        		<h4 class="modal-title" id="title-crear-modal">Cambiar Foto</h4>
+									</div>
+
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="fotoEditar" class="col-sm-3 control-label">Foto:</label>
+											<div class="col-sm-7">
+												<input type="file" name="fotoEditar" id="fotoEditar" class="form-control-static" required="true">
+											</div>
+										</div>
+									</div>
+
+									<div class="modal-footer">
+										<button type="submmit" class="btn btn-primary">Guardar</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Fin formulario de nuevo -->
+
+				</div>
+			</div>
+		</div>
+	</section>

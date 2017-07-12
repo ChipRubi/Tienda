@@ -1,0 +1,54 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-2">
+					<div class="list-group">
+						<a href="purchases.php" class="list-group-item">Compras</a>
+						<a href="suppliers.php" class="list-group-item active">Proveedores</a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<h1>Editar Proveedor</h1>
+
+					<form action="suppliersEditarGuardar.php" method="post" class="form-horizontal">
+						<input type="hidden" name="idEditar" id="idEditar" value="[PRO_ID]">
+
+						<div class="form-group">
+							<label for="nombreEditar" class="col-sm-3 control-label">Nombre:</label>
+							<div class="col-sm-7">
+								<input type="text" name="nombreEditar" id="nombreEditar" class="form-control" value="[PRO_NOMBRE]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="direccionEditar" class="col-sm-3 control-label">Direccion:</label>
+							<div class="col-sm-7">
+								<input type="text" name="direccionEditar" id="direccionEditar" class="form-control" value="[PRO_DIRECCION]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="telefonoEditar" class="col-sm-3 control-label">Telefono:</label>
+							<div class="col-sm-7">
+								<input type="phone" name="telefonoEditar" id="telefonoEditar" class="form-control" value="[PRO_TELEFONO]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="correoEditar" class="col-sm-3 control-label">Correo:</label>
+							<div class="col-sm-7">
+								<input type="email" name="correoEditar" id="correoEditar" class="form-control" value="[PRO_CORREO]" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submmit" class="btn btn-primary"> Guardar</button>
+								<a href="suppliers.php" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -1,0 +1,16 @@
+section .container .elemento{
+	padding: 0 50px;
+}
+
+section .container p{
+	text-align: justify;
+}
+
+section .container .button{
+	margin: 30px 0;
+	text-align: center;
+}
+
+section .carousel{
+	margin-bottom: 15px;
+}

@@ -1,0 +1,64 @@
+<section>
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-2">
+					<div class="list-group">
+						<a href="purchases.php" class="list-group-item active">Compras</a>
+						<a href="suppliers.php" class="list-group-item">Proveedores</a>
+					</div>
+				</div>
+
+				<div class="col-md-10">
+					<h1>Realizar Comprar [COM_ID]</h1>
+
+					<form action="purchasesAgregar.php" method="post" class="form-horizontal">
+						<input type="hidden" name="idCompra" id="idCompra" value="[COM_ID]">
+
+						<div class="form-group">
+							<label for="claveArticulo" class="col-sm-3 control-label">Clave:</label>
+							<div class="col-sm-7">
+								<input type="text" name="claveArticulo" id="claveArticulo" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="cantidadArticulo" class="col-sm-3 control-label">Cantidad:</label>
+							<div class="col-sm-7">
+								<input type="number" min="0" step="1" name="cantidadArticulo" id="cantidadArticulo" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="costoArticulo" class="col-sm-3 control-label">Costo:</label>
+							<div class="col-sm-7">
+								<input type="number" min="0" step="0.1" name="costoArticulo" id="cantidadArticulo" class="form-control" required="true">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submmit" id="agregar" class="btn btn-success">Agregar</button>
+								<button type="reset" id="limpiar" class="btn btn-warning">Limpiar</button>
+							</div>
+						</div>
+					</form>
+
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<tr>
+								<th>No.</th>
+								<th>Articulo</th>
+								<th>Cantidad</th>
+								<th>Costo</th>
+								<th>Total</th>
+								<th></th>
+							</tr>
+							[TABLE_CONTENT]
+						</table>
+					</div>
+
+					<a href="purchasesFinalizar.php?idCom=[COM_ID]" class="btn btn-primary">Finalizar</a>
+				</div>
+			</div>
+		</div>
+	</section>
