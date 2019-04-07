@@ -2,7 +2,7 @@
 
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPass = "copacopa@mysql";
+$dbPass = "";
 $dbName = "tienda";
 
 function getConnection(){
