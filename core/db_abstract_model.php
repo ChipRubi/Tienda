@@ -18,14 +18,20 @@ abstract class DBAbstractModel {
     private $conexion;
     private $mensaje = "";
 
-    // Conecttar con la base de datos
+    // Metodos abstractos del CRUD de las clases que lo hereden
+    abstract protected function get();
+    abstract protected function set();
+    abstract protected function edit();
+    abstract protected function delete();
+
+    // Conectar con la base de datos
     private function openConnection() {
-        $this->conexion = new mysqli($this->$db_host, $this->$db_user, $this->$db_pass, $this->$db_name);
+        $this->conexion = new mysqli(self::$db_host, self::$db_user, self::$db_pass, $this->db_name);
     }
 
     // Desconectar la base de datos
     private function closeConnection() {
-        $this->conexion->close_connection();
+        $this->conexion->close();
     }
 
     // Ejecutar consultas
@@ -40,6 +46,7 @@ abstract class DBAbstractModel {
     }
 
     protected function getResultsFromQuery() {
+        $this->rows = array();
         $this->openConnection();
         $resultado = $this->conexion->query($this->query);
         while($this->rows[] = $resultado->fetch_assoc());
@@ -47,12 +54,6 @@ abstract class DBAbstractModel {
         $this->closeConnection();
         array_pop($this->rows);
     }
-
-    // Metodos abstractos del CRUD de las clases que lo hereden
-    abstract protected function get();
-    abstract protected function set();
-    abstract protected function edit();
-    abstract protected function delete();
 }
 
 ?>
