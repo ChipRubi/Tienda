@@ -42,7 +42,8 @@ function identificarModelo() {
 
 // 2 Invocar al modelo y efectuar los cambios
 function invocarModelo() {
-
+    $inventario = new Inventario();
+    return $inventario;
 }
 
 // 3 Enviar la informacion a la vista
