@@ -1,2 +1,3 @@
 RewriteEngine on
 RewriteRule ^articulos/ modules/articulos/controller.php
+RewriteRule ^inventario/ modules/inventario/controller.php
