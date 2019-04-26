@@ -68,10 +68,9 @@ function enviarDatos() {
             break;
             
         case VISTA_LISTAR_INVENTARIO:
-            $inventario->getAll();
             $datos = array(
                 'lista_inventario' => obtenerListaInventarios($inventario),
-                'opciones_categoria' => '',
+                'opciones_categoria' => obtenerOpcionesCategoria($inventario),
                 'mensaje' => $inventario->mensaje
             );
             retornarVista(VISTA_LISTAR_INVENTARIO, $datos);
@@ -84,17 +83,36 @@ function enviarDatos() {
 }
 
 // Funciones auxiliares
+
 function obtenerListaInventarios($inventario){
+    $inventario->getInventarios();
+    $lista = $inventario->listaInventarios;
     $tabla = '';
-    $lista = $inventario->lista;
-    foreach ($lista as $fila) {
-        $tabla = $tabla.obtenerPlantilla('tabla');
-        $tabla = remplazarDatos($fila, $tabla);
+    if (count($lista) >= 1) {
+        foreach ($lista as $fila) {
+            $tabla = $tabla.obtenerPlantilla(VISTA_LISTAR_INVENTARIO.'_tabla');
+            $tabla = remplazarDatos($fila, $tabla);
+        }
+    } else {
+        $tabla = obtenerPlantilla(VISTA_LISTAR_INVENTARIO.'_tabla_vacia');
+        $tabla = remplazarDatos(array('mensaje' => $inventario->mensaje), $tabla);
     }
     return $tabla;
 }
 
-echo capturarEvento();
+function obtenerOpcionesCategoria($inventario){
+    $inventario->getCategorias();
+    $lista = $inventario->listaCategorias;
+    $html = '';
+    if (count($lista) >= 1) {
+        foreach ($lista as $categoria) {
+            $html = $html.obtenerPlantilla('categorias');
+            $html = remplazarDatos($categoria, $html);
+        }
+    }
+    return $html;
+}
+
 enviarDatos();
 
 ?>

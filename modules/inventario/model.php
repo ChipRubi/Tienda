@@ -10,7 +10,8 @@ class Inventario extends DBAbstractModel {
     public $descripcion;
     public $idCategoria;
     public $categoria;
-    public $lista = array();
+    public $listaInventarios = array();
+    public $listaCategorias = array();
 
     public function get($id='') {
         if ($id != '') {
@@ -60,7 +61,7 @@ class Inventario extends DBAbstractModel {
 
     }
 
-    public function getAll() {
+    public function getInventarios() {
         $this->query = "
             SELECT 
                 id_inv as id,
@@ -74,9 +75,22 @@ class Inventario extends DBAbstractModel {
         ";
         $this->getResultsFromQuery();
         if (count($this->rows) >= 1) {
-            $this->lista = $this->rows;
+            $this->listaInventarios = $this->rows;
         } else {
             $this->mensaje = 'No hay ningun inventario';
+        }
+    }
+
+    public function getCategorias() {
+        $this->query = "
+            SELECT id_cat as id, nombre_cat as nombre
+            FROM tienda.tda_tbl_categoria
+        ";
+        $this->getResultsFromQuery();
+        if (count($this->rows) >= 1) {
+            $this->listaCategorias = $this->rows;
+        } else {
+            $this->mensaje = 'No hay ninguna categoria';
         }
     }
 
