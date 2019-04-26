@@ -2,6 +2,7 @@
 
 // Nombre del modulo
 const MODULO = 'inventario/';
+const TITULO = 'Inventario';
 
 // Controladores de Eventos del Usuario
 const AGREGAR_INVENTARIO = 'set';
