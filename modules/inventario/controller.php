@@ -48,7 +48,34 @@ function invocarModelo() {
 
 // 3 Enviar la informacion a la vista
 function enviarDatos() {
+    $inventario = invocarModelo();
+    $evento = capturarEvento();
 
+    switch ($evento) {
+        case AGREGAR_INVENTARIO:
+            
+            break;
+        
+        case VER_INVENTARIO:
+            
+            break;
+
+        case EDITAR_INVENTARIO:
+            
+            break;
+        
+        case BORRAR_INVENTARIO:
+            
+            break;
+            
+        case VISTA_LISTAR_INVENTARIO:
+            
+            break;
+
+        default:
+            
+            break;
+    }
 }
 
 echo capturarEvento();
