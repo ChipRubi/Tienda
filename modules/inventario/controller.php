@@ -36,9 +36,8 @@ function capturarEvento() {
 }
 
 // 1 Identificar el modelo
-function identificarModelo() {
-
-}
+// Funcion vacia debido a que el modulo solo tiene un modelo que es Inventario
+function identificarModelo() {}
 
 // 2 Invocar al modelo y efectuar los cambios
 function invocarModelo() {
@@ -69,7 +68,13 @@ function enviarDatos() {
             break;
             
         case VISTA_LISTAR_INVENTARIO:
-            
+            $inventario->getAll();
+            $datos = array(
+                'lista_inventario' => obtenerListaInventarios($inventario),
+                'opciones_categoria' => '',
+                'mensaje' => $inventario->mensaje
+            );
+            retornarVista(VISTA_LISTAR_INVENTARIO, $datos);
             break;
 
         default:
@@ -78,6 +83,18 @@ function enviarDatos() {
     }
 }
 
+// Funciones auxiliares
+function obtenerListaInventarios($inventario){
+    $tabla = '';
+    $lista = $inventario->lista;
+    foreach ($lista as $fila) {
+        $tabla = $tabla.obtenerPlantilla('tabla');
+        $tabla = remplazarDatos($fila, $tabla);
+    }
+    return $tabla;
+}
+
 echo capturarEvento();
+enviarDatos();
 
 ?>

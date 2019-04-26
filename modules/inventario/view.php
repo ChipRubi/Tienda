@@ -15,7 +15,7 @@ function obtenerPlantilla($archivo=''){
 // 3 Remplazar el contenido
 function remplazarDatos($datos, $pagina) {
     foreach ($datos as $clave => $valor) {
-        $pagina = str_replace('['.$clave.']', $valor, $pagina);
+        $pagina = str_replace('{{'.$clave.'}}', $valor, $pagina);
     }
     return $pagina;
 }
@@ -25,7 +25,7 @@ function retornarVista($vista, $datos=array()) {
     global $diccionario;
 
     $pagina = obtenerPlantilla('template');
-    $pagina = str_replace('[formulario]', obtenerPlantilla($vista), $pagina);
+    $pagina = str_replace('{{formulario}}', obtenerPlantilla($vista), $pagina);
     $pagina = remplazarDatos($datos, $pagina);
 
     print $pagina;

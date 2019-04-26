@@ -1,12 +1,12 @@
 <tr>
     <td>{{id}}</td>
     <td>{{nombre}}</td>
-    <td>{{creacion}}</td>
+    <td>{{fechaCreacion}}</td>
     <td>{{descripcion}}</td>
     <td>{{categoria}}</td>
     <td>
-        <a href="{{id}}" class="btn btn-warning btn-sm [READ]">Ver</a> 
-        <a href="{{id}}" class="btn btn-primary btn-sm [EDIT]">Editar</a> 
-        <a href="{{id}}" class="btn btn-danger btn-sm [DEL]">Eliminar</a>
+        <a href="/tienda/inventario/ver/?id={{id}}" class="btn btn-warning btn-sm">Ver</a> 
+        <a href="/tienda/inventario/editar/?id={{id}}" class="btn btn-primary btn-sm">Editar</a> 
+        <a href="/tienda/inventario/borrar/?id={{id}}" class="btn btn-danger btn-sm">Eliminar</a>
     </td>
 </tr>

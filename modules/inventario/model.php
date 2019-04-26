@@ -62,7 +62,13 @@ class Inventario extends DBAbstractModel {
 
     public function getAll() {
         $this->query = "
-            SELECT *
+            SELECT 
+                id_inv as id,
+                nombre_inv as nombre,
+                creacion_inv as fechaCreacion,
+                descripcion_inv as descripcion,
+                id_cat_inv as idCategoria,
+                nombre_cat as categoria
             FROM tienda.tda_tbl_inventario
             INNER JOIN tienda.tda_tbl_categoria ON id_cat_inv = id_cat
         ";

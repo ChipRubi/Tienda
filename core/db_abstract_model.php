@@ -16,7 +16,7 @@ abstract class DBAbstractModel {
 
     // Variables para guardar datos referentes a la conexion
     private $conexion;
-    private $mensaje = "";
+    public $mensaje = "";
 
     // Metodos abstractos del CRUD de las clases que lo hereden
     abstract protected function get();
