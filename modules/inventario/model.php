@@ -49,8 +49,52 @@ class Inventario extends DBAbstractModel {
         }
     }
 
-    public function set() {
+    public function set($datos=array()) {
+        if (array_key_exists('nombre', $datos) && array_key_exists('descripcion', $datos) && array_key_exists('idCategoria', $datos)) {
+            $this->getInventarios();
+            // Determina si los datos ingresados corresponden al de algun registro existente
+            $existeInventario = false;
+            foreach ($this->listaInventarios as $fila) {
+                if ((strcasecmp($datos['nombre'], $fila['nombre']) == 0)  && (strcasecmp($datos['idCategoria'], $fila['idCategoria']) == 0)) {
+                    $existeInventario = true;
+                }
+            }
 
+            if (!$existeInventario) {
+                $fecha = getdate();
+
+                $this->nombre = $datos['nombre'];
+                $this->fechaCreacion = 
+                    $fecha['year'].'-'.
+                    $fecha['mon'].'-'.
+                    $fecha['mday'].' '.
+                    $fecha['hours'].':'.
+                    $fecha['minutes'].':'.
+                    $fecha['seconds']
+                ;
+                $this->descripcion = $datos['descripcion'];
+                $this->idCategoria = $datos['idCategoria'];
+                $this->query = "
+                    INSERT INTO tda_tbl_inventario (
+                        nombre_inv, 
+                        creacion_inv, 
+                        descripcion_inv, 
+                        id_cat_inv
+                    ) VALUES (
+                        '$this->nombre', 
+                        '$this->fechaCreacion', 
+                        '$this->descripcion', 
+                        '$this->idCategoria'
+                    )
+                ";
+                $this->executeQuery();
+                $this->mensaje = 'Inventario agregado exitosamente';
+            } else {
+                $this->mensaje = 'El inventario ya existe';
+            }
+        } else {
+            $this->mensaje = "No se ha creado el inventario";
+        }
     }
 
     public function edit() {
@@ -92,10 +136,6 @@ class Inventario extends DBAbstractModel {
         } else {
             $this->mensaje = 'No hay ninguna categoria';
         }
-    }
-
-    public function existeInventario($datosInventario=array()){
-
     }
 
     function __construct() {

@@ -52,7 +52,9 @@ function enviarDatos() {
 
     switch ($evento) {
         case AGREGAR_INVENTARIO:
-            
+            $datos = obtenerDatosDeUsuario();
+            $inventario->set($datos);
+            header('Location: /tienda/inventario/');
             break;
         
         case VER_INVENTARIO:
@@ -83,6 +85,26 @@ function enviarDatos() {
 }
 
 // Funciones auxiliares
+
+function obtenerDatosDeUsuario(){
+    $datosUsuario = array();
+    if ($_POST) {
+        if (array_key_exists('nombre', $_POST)) {
+            $datosUsuario['nombre'] = $_POST['nombre'];
+        }
+        if (array_key_exists('descripcion', $_POST)) {
+            $datosUsuario['descripcion'] = $_POST['descripcion'];
+        }
+        if (array_key_exists('idCategoria', $_POST)) {
+            $datosUsuario['idCategoria'] = $_POST['idCategoria'];
+        }
+    } elseif ($_GET) {
+        if (array_key_exists('id', $_GET)) {
+            $datosUsuario = $_GET['id'];
+        }
+    }
+    return $datosUsuario;
+}
 
 function obtenerListaInventarios($inventario){
     $inventario->getInventarios();

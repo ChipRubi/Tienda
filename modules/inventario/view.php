@@ -8,6 +8,9 @@ $diccionario = array(
         VISTA_EDITAR_INVENTARIO => 'Editar un inventario',
         VISTA_BORRAR_INVENTARIO => 'Eliminar un inventario',
         VISTA_LISTAR_INVENTARIO => 'Lista de inventarios'
+    ),
+    'accionesFormularios' => array(
+        'SET' => '/tienda/'.MODULO.AGREGAR_INVENTARIO.'/'
     )
 
 );
@@ -35,6 +38,7 @@ function retornarVista($vista, $datos=array()) {
     $pagina = str_replace('{{modulo}}', TITULO, $pagina);
     $pagina = str_replace('{{subtitulo}}', $diccionario['subtitulo'][$vista], $pagina);
     $pagina = str_replace('{{formulario}}', obtenerPlantilla($vista), $pagina);
+    $pagina = remplazarDatos($diccionario['accionesFormularios'], $pagina);
     $pagina = remplazarDatos($datos, $pagina);
 
     print $pagina;
