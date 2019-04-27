@@ -38,7 +38,7 @@ abstract class DBAbstractModel {
     protected function executeQuery() {
         if ($_POST) {
             $this->openConnection();
-            $this->$conexion->query($query);
+            $this->conexion->query($this->query);
             $this->closeConnection();
         } else {
             $this->mensaje = "Metodo no permitido";
